@@ -1,0 +1,54 @@
+
+This is the exercise is to further build the Logic.
+
+Exercise Overview
+ We have two CSV File User and Product. User csv stores the user related information and Product Stores the product related information.
+ User belongs to a city and products are available in one or few city. The objective of this exercise is to find the Product that are available in the user city
+ 
+
+Source
+-We have two CSV File User and Product. User csv stores the user related information and Product Stores the product related information
+
+Steps
+1.) Create a Class User with the following fields 
+    User(userId:String,userName:String,email:String,phoneNumber:String,city:String)
+2.) Create a Class Product with the following fields
+    Product(productId:String,ProductName:String,productCategory:String,Price:Double,availableCity:List<String>)
+	
+3.) Create a class UserCSVReader. that reads the User CSV File
+	class UserCSVReader{
+	    //this method reads all the user from the user csv file and return it as a List of User object
+		public List<User> getAllUsers(){
+		
+		}
+	}
+4.) Create a class ProductCSVReader. that reads from the product.csv file
+	class ProductCSVReader{
+	    //this method reads all the product from the product csv file and return it as a List of Product object
+		public List<Product> getAllProducts(){
+		
+		}
+	}
+	
+5.) Create a Class ProductAvailabilityService that should have following
+    class ProductAvailabilityService{
+	 private List<Product> productList;
+	 private List<User> userList;
+	  //constructor
+	  ProductAvailabilityService(){
+	     //1.) Call UserCSVReader.getAllUsers and set the returned List<User> in the userList instance variable
+		 //2.) Call ProductCSVReader.getAllProducts and set the returned List<Product> in the productList instance variable
+	  }
+	  
+	  //Gets all the product from all the category that are available in the city where user lives
+	  public List<Product> getAllProductForUser(String userId){
+		// get the user from the instance variable userList for the given userId
+		// get the city of the Selected User		
+		// Iterate over the productList and find all those products that are available in city of the user
+	  }
+	  
+	  public List<Product> getAllProductForUserForCategory(String userId,String productCategory){
+		// call getAllProductForUser(userId) this will give all the product in the user city
+		// iterate over the list and find those product which matches the given category
+	  }
+	}

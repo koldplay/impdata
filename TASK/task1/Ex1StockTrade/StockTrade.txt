@@ -1,0 +1,31 @@
+Java Practice Programming
+
+1.) Read StockTrade from a CSV FILE
+    We will write a small java program that will read a StockTrade CSV(comma seperated file) and 
+    convert it into the StockTrade object and does some analysis on it
+
+   -CSV File will have following fields(Security:String,Date:util.Date,Open:Double,High:Double,Low:Double,Close:Double,Volume:Double,Adj Close:Double)
+   -create a Java class StockTrade(Domain Object) that will hold the value of one Stock Trade
+   
+   
+   IStockTradeReader
+    //reads the trade from CSV file convert it into StockTrade Object and return it as List
+	public List<StockTrade> readStockTrades() throws StockTradeInValidFormatException
+	//Find the Stock trade out of the List that has max volume
+	public StockTrade getMaxVolumeTrade(List<StockTrade>)
+	//Find the Stock trade out of the List that has min volume
+	public StockTrade getMinVolumeTrade(List<StockTrade>)
+	//Return the difference of open vs High that is high-open with Date being the Key and value being the difference
+	public Map<Date,Double> getDailyTradingDifferential(List<StockTrade>)
+
+   
+  CSVStockTradeReader implements IStockTradeReader {
+   //The following private methods are advised to read and transform the Line in CSV
+   private StockTrade parseStockCSVLine(String csLine)
+   //you are open to add other private methods
+   }
+
+
+(CISCO,Mon Aug 11 00:00:00 IST 2014,21.469999,21.469999,21.219999,21.235225,19.452566,442997400)
+
+(CISCO,Tue Mar 11 00:00:00 IST 2014,21.459999,21.690001,21.267895,21.540001,,19.736614,855016000)

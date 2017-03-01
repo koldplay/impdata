@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:v1="http://www.ups.com/XMLSchema/XOLTWS/UPSS/v1.0" xmlns:v11="http://www.ups.com/XMLSchema/XOLTWS/Ship/v1.0"
+	xmlns:v12="http://www.ups.com/XMLSchema/XOLTWS/Common/v1.0" xmlns:v13="http://www.ups.com/XMLSchema/XOLTWS/IF/v1.0">
+	<soapenv:Header>
+		<v1:UPSSecurity>
+			<v1:UsernameToken>
+				<v1:Username>Getusroi1</v1:Username>
+				<v1:Password>WMS20parcel</v1:Password>
+			</v1:UsernameToken>
+			<v1:ServiceAccessToken>
+				<v1:AccessLicenseNumber>1D03F14FE2776166</v1:AccessLicenseNumber>
+			</v1:ServiceAccessToken>
+		</v1:UPSSecurity>
+	</soapenv:Header>
+	<soapenv:Body>
+		<v11:ShipmentRequest>
+			<v12:Request>
+				<!--Zero or more repetitions: -->
+				<v12:RequestOption>nonvalidate</v12:RequestOption>
+				<!--Optional: -->
+				<!--Optional: -->
+				<v12:TransactionReference>
+					<!--Optional: -->
+					<v12:CustomerContext>Bare Bones Ship Request</v12:CustomerContext>
+					<!--Optional: -->
+					<v12:XpciVersion>1.0001</v12:XpciVersion>
+					<v12:TransactionIdentifier>unknown</v12:TransactionIdentifier>
+				</v12:TransactionReference>
+			</v12:Request>
+			<v11:Shipment>
+				<!--Optional: -->
+				<v11:Description>test</v11:Description>
+				<!--Optional: -->
+				<v11:Shipper>
+					<v11:Name>Brian Pier</v11:Name>
+					<v11:AttentionName>BP</v11:AttentionName>
+					<!--Optional: -->
+					<v11:Phone>
+						<v11:Number>(262) 264-0477</v11:Number>
+						<!--Optional: -->
+						<v11:Extension>1</v11:Extension>
+					</v11:Phone>
+					<v11:ShipperNumber>104967</v11:ShipperNumber>
+					<!--Optional: -->
+					<v11:Address>
+						<!--1 to 3 repetitions: -->
+						<v11:AddressLine>148 Westlake Point</v11:AddressLine>
+						<v11:City>MONTGOMERY</v11:City>
+						<!--Optional: -->
+						<v11:StateProvinceCode>TX</v11:StateProvinceCode>
+						<!--Optional: -->
+						<v11:PostalCode>77356</v11:PostalCode>
+						<v11:CountryCode>US</v11:CountryCode>
+					</v11:Address>
+				</v11:Shipper>
+				<v11:ShipTo>
+					<v11:Name>Get Us ROI LLC</v11:Name>
+					<!--Optional: -->
+					<v11:Phone>
+						<v11:Number>3464 5439136</v11:Number>
+						<!--Optional: -->
+						<v11:Extension>49</v11:Extension>
+					</v11:Phone>
+					<v11:AttentionName>Munich</v11:AttentionName>
+					<v11:Address>
+						<!--1 to 3 repetitions: -->
+						<v11:AddressLine>An der Wasserschluft 10</v11:AddressLine>
+						<v11:City>Munich</v11:City>
+						<!--Optional: -->
+						<!-- <v11:StateProvinceCode>TX</v11:StateProvinceCode> -->
+						<!--Optional: -->
+						<v11:PostalCode>06526</v11:PostalCode>
+						<v11:CountryCode>DE</v11:CountryCode>
+						<!--Optional: -->
+					</v11:Address>
+				</v11:ShipTo>
+				<!--Optional: -->
+				<!--Optional: -->
+				<v11:ShipFrom>
+					<v11:Name>Get Us ROI LLC</v11:Name>
+					<!--Optional: -->
+					<v11:Address>
+						<!--1 to 3 repetitions: -->
+						<v11:AddressLine>148 Westlake Point</v11:AddressLine>
+						<v11:City>MONTGOMERY</v11:City>
+						<!--Optional: -->
+						<v11:StateProvinceCode>TX</v11:StateProvinceCode>
+						<!--Optional: -->
+						<v11:PostalCode>77356</v11:PostalCode>
+						<v11:CountryCode>US</v11:CountryCode>
+					</v11:Address>
+				</v11:ShipFrom>
+				<!--Optional: -->
+				<v11:PaymentInformation>
+					<!--1 to 2 repetitions: -->
+					<v11:ShipmentCharge>
+						<v11:Type>01</v11:Type>
+						<v11:BillShipper>
+							<!--Optional: -->
+							<v11:AccountNumber>104967</v11:AccountNumber>
+							<!--Optional: -->
+							<!--Optional: -->
+						</v11:BillShipper>
+						<!--Optional: -->
+						<!--Optional: -->
+					</v11:ShipmentCharge>
+					<!--Optional: -->
+				</v11:PaymentInformation>
+				<!--Optional: -->
+				<!--Optional: -->
+				<!--Optional: -->
+				<!--Optional: -->
+				<v11:Service>
+					<v11:Code>07</v11:Code>
+					<!--Optional: -->
+					<v11:Description>2day air</v11:Description>
+				</v11:Service>
+				<!--Optional: -->
+				<!--Optional: -->
+				<v11:ShipmentServiceOptions>
+					<!--Optional: -->
+				</v11:ShipmentServiceOptions>
+				<!--1 or more repetitions: -->
+				<v11:Package>
+					<!--Optional: -->
+					<v11:Description>TestPkg</v11:Description>
+					<!--Optional: -->
+					<v11:Packaging>
+						<v11:Code>2b</v11:Code>
+						<!--Optional: -->
+						<v11:Description>PAK</v11:Description>
+					</v11:Packaging>
+					<!--Optional: -->
+					<v11:Dimensions>
+						<v11:UnitOfMeasurement>
+							<v11:Code>IN</v11:Code>
+							<!--Optional: -->
+							<v11:Description>inches</v11:Description>
+						</v11:UnitOfMeasurement>
+						<v11:Length>12</v11:Length>
+						<v11:Width>12</v11:Width>
+						<v11:Height>12</v11:Height>
+					</v11:Dimensions>
+					<!--Optional: -->
+					<v11:PackageWeight>
+						<v11:UnitOfMeasurement>
+							<v11:Code>LBS</v11:Code>
+							<!--Optional: -->
+							<v11:Description>pounds</v11:Description>
+						</v11:UnitOfMeasurement>
+						<v11:Weight>20</v11:Weight>
+					</v11:PackageWeight>
+					<!--Optional: -->
+					<!--Optional: -->
+					<v11:PackageServiceOptions>
+						<!--Optional: -->
+						<!--Optional: -->
+						<!--Optional: -->
+					</v11:PackageServiceOptions>
+					<!--Optional: -->
+				</v11:Package>
+			</v11:Shipment>
+			<!--Optional: -->
+			<v11:LabelSpecification>
+				<v11:LabelImageFormat>
+					<v11:Code>ZPL</v11:Code>
+					<!--Optional: -->
+					<v11:Description>zpl</v11:Description>
+				</v11:LabelImageFormat>
+				<!--Optional: -->
+				<!--Optional: -->
+				<v11:LabelStockSize>
+					<v11:Height>6</v11:Height>
+					<v11:Width>4</v11:Width>
+				</v11:LabelStockSize>
+				<!--Zero or more repetitions: -->
+			</v11:LabelSpecification>
+			<!--Optional: -->
+		</v11:ShipmentRequest>
+	</soapenv:Body>
+</soapenv:Envelope>
+
+
+

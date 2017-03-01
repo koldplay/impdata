@@ -1,0 +1,7 @@
+Excesice: 
+-------------
+1.) Given "shipment.xml", will have to be converted to "shipment_soap_request.xml"
+   Methods:
+	1.1) Considering all values are present in the source, generate the destination.
+	1.2) Considering the orginal source values are only available, and append other values externally.
+	1.3) Considering the "shipment_soap_request.xml" as source, "shipment.xml" has to be generated.

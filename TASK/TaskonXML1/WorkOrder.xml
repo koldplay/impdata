@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<WorkOrder>
+	<TenantId /> <!-- Required --><!-- Dynamics GP Site Name -->
+	<SiteId /> <!-- Required --><!-- Dynamics GP Org Name -->
+	<Id />
+	<Provider><!-- Required -->
+		<Id /> <!-- Required --><!-- ServiceChannel.PRO-->
+		<Name /><!-- Required -->
+		<SourceId /><!-- Required --><!-- Service Channel Tracking ID -->
+		<RequestedDate /><!-- Required --><!-- Service Channel.DATETIME -->
+		<ActionDate /><!-- Date that Accept/Reject --><!-- SACUI -->
+		<KVP></KVP><!-- Service Mgmt. Specific -->
+		<SourceProperties>
+			<Properties name='ProviderStatus'>OPEN</Properties><!-- ServiceChannel .Status -->
+			<Properties name='Category'>Building-exterior</Properties><!-- ServiceChannel.Category -->
+			<Properties name='Trade'>Traning</Properties><!-- ServiceChannel .Trade -->
+		</SourceProperties><!-- Not Required -->
+	</Provider>
+	<Customer><!-- Required -->
+		<Id /><!-- Required --><!-- mapped to ServiceChannel .SUB -->
+		<Name /><!-- Not Required --><!-- get ContactName based on subscriber id (SUB) coming from aggregator (Service channel) from a table-->
+		<SalespersonId /><!-- Not Required -->
+		<Notes>
+			<Note><!-- 0 to Many / Not Required -->
+				<Subject /><!-- Required -->
+				<NoteType /><!-- Required -->
+				<NoteTypeId /><!-- Required -->
+				<NoteText /><!-- Required -->
+				<Internal /><!-- Boolean -->
+			</Note>
+		</Notes>
+	</Customer>
+	<Address><!-- Required -->
+		<Id /><!-- Required --><!-- mapped to ServiceChannel .LOC -->
+		<AddressName /><!-- Not Required -->
+		<Street1 /><!-- Not Required -->
+		<Street2 />
+		<City /><!-- Not Required -->
+		<State /><!-- Not Required -->
+		<Country /><!-- Not Required -->
+		<PostalCode /><!-- Not Required -->
+		<Contacts>
+			<Contact><!-- 0 to Many / Not Required -->
+				<Name /><!-- Required --><!-- ServiceChanel.CALLER-->
+				<Phone /><!-- Not Required -->
+				<Email /><!-- Not Required -->
+				<KVP></KVP><!-- Not Required -->
+			</Contact>
+		</Contacts>
+		<Notes>
+			<Note><!-- 0 to Many / Not Required -->
+				<Subject /><!-- Required -->
+				<NoteType /><!-- Required -->
+				<NoteTypeId /><!-- Required -->
+				<NoteText /><!-- Required -->
+				<Internal /><!-- Boolean -->
+			</Note>
+		</Notes>
+		<KVP></KVP><!-- Not Required -->
+	</Address>
+	<ShipToCustomer /><!-- Not Required -->
+	<ShipToAddress /><!-- Not Required -->
+	<BillToCustomer /><!-- Not Required -->
+	<BillToAddress /><!-- Not Required -->
+	<Division /><!-- Not Required --> <!-- SACUI.Division-->
+	<ScheduledDate /><!-- Required --><!--ServiceChanel.ScheduledDate -->
+	<CallStatus /><!-- Required --> <!-- SAC.internalStatus-->
+	<CallType /><!-- Required --><!-- ServiceChanel.CALLTYPE(WONEW/WOUPDATE) -->
+	<CreatedBy /><!-- Required -->
+	<WorkOrderId /><!-- Not Required --><!-- ServiceCallId From Signature-->
+	<Description /><!-- Not Required --><!-- ServiceChanel.ProblemDescription-->
+	<CustomerWorkOrder /><!-- Not Required --><!-- ServiceChanel.WO_NUM -->
+	<CustomerPurchaseOrder /><!-- Required based on Customer Setting --><!-- ServiceChanel.WO_PO -->
+	<Priority /><!-- Not Required --><!-- ServiceChanel.Priority-->
+	<CompletionDate /><!-- Default to Null - Not Required -->
+	<Job /><!-- Not Required -->
+	<OriginatingWorkOrderId /><!-- Not Required -->
+	<SalespersonId /><!-- Not Required -->
+	<UserDefines><!-- Not Required -->
+		<UserDefine><!-- 0 to Many / Not Required -->
+			<KVP></KVP><!-- Not Required -->
+		</UserDefine>
+	</UserDefines>
+	<Contacts>
+		<Contact><!-- 0 to Many / Not Required -->
+			<Id /><!-- Required -->
+			<Name /><!-- Required -->
+			<Phone /><!-- Not Required -->
+			<Email /><!-- Not Required -->
+			<KVP></KVP><!-- Not Required -->
+		</Contact>
+	</Contacts>
+	<Appointments>
+		<Appointment><!-- 0 to Many / Not Required -->
+			<Id /><!-- Required -->
+			<Resources>
+				<Resource><!-- 0 To Many / Not Required -->
+					<Id /><!-- Required -->
+					<Name /><!-- Required -->
+					<ResourceType /><!-- Required -->
+					<KVP></KVP><!-- Not Required -->
+				</Resource>
+			</Resources>
+			<StartTime /><!-- Not Required -->
+			<EstimateHours /><!-- Not Required -->
+			<Equipments>
+				<Equipment><!-- 0 to Many -->
+					<Id /><!-- Required -->
+					<Manufacturer><!-- Not Required -->
+						<Id /><!-- Required -->
+						<Name /><!-- Required -->
+						<Model><!-- Not Required -->
+							<Name /><!-- Required -->
+							<Description /><!-- Required -->
+						</Model>
+					</Manufacturer><!-- Not Required -->
+					<EquipmentType /><!-- Required -->
+					<SerialNumber /><!-- Not Required -->
+					<Contract><!-- Not Required -->
+						<Id /><!-- Required -->
+						<Customer><!-- Required -->
+							<Id /><!-- Required -->
+							<CustomerId /><!-- Required -->
+							<CustomerName /><!-- Required -->
+						</Customer>
+						<StartDate /><!-- Required -->
+						<EndDate /><!-- Required -->
+						<Type /><!-- Required -->
+						<Status />
+						<Amount /><!-- Required / Default to 0 -->
+					</Contract>
+					<Building><!-- Not Required -->
+						<Id /><!-- Required -->
+						<Name /><!-- Required -->
+						<Address><!-- Not Required -->
+							<Id /><!-- Required -->
+							<Street1 /><!-- Required -->
+							<Street2 />
+							<City /><!-- Required -->
+							<State /><!-- Required -->
+							<Country /><!-- Required -->
+							<PostalCode /><!-- Required -->
+						</Address>
+					</Building>
+					<Notes>
+						<Note><!-- 0 to Many -->
+							<Subject /><!-- Required -->
+							<NoteType /><!-- Required -->
+							<NoteTypeId /><!-- Required -->
+							<NoteText /><!-- Required -->
+							<Private /><!-- Boolean / Default to False -->
+						</Note>
+					</Notes>
+				</Equipment>
+			</Equipments>
+		</Appointment>
+	</Appointments>
+	<Notes>
+		<Note><!-- 0 to Many -->
+			<Subject /><!-- Required --> <!-- ServiceChanel-DateTime-->
+			<NoteType /><!-- Required --><!-- ServiceChanel -->
+			<NoteTypeId /><!-- Required --><!-- ServiceCallId-->
+			<NoteText /><!-- Required --><!-- ServiceChanel-Attr.Text(Note Text)-->
+			<Private /><!-- Boolean / Default to False -->
+		</Note>
+	</Notes>
+	<CallSource>
+		<Id /> <!-- Required --><!-- Will always be 60 for Service Channel -->
+		<KVP></KVP><!-- Not Required -->
+	</CallSource>
+	<Constraints>
+		<Properties name="Amount">0</Properties><!-- ServiceChanel.NTE-->
+	</Constraints><!-- Not Required --><!-- KVP's -->
+</WorkOrder>

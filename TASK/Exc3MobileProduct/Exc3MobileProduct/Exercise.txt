@@ -1,0 +1,56 @@
+
+This is the exercise is to further build the Logic and Intoduce the little ObjectOriented programming.
+
+Exercise Overview
+ We have CSV File for Product. There can be different type of products and each Product can have different attribute.
+ We will create a product(Object) hieararchy to represent each type of product and after reading the CSV we have to build specific products.
+ This time we will ask respective Product classes to build themself instead of doing it from the readerClass
+
+  
+ 
+
+Source
+-We have ProductDeatil csv file .Each type of product will have different attribute and hence for each type we will create a different classes. Beacuase there are common attribute also we will create a Product as the base class and its extended further based on the object type.
+
+Steps
+1.) Create the classes that will hold the individual products
+	a.) Create a class Product with following fields Product(ProductId:String,ProductName:String,ProductType:String,Price:Double,Warranty:Int,ManufecturedDt:Date)
+	b.) Create a class ProcessingDevice(ScreenSize,OS,BatterySize,NumCore,RAM) that extends Product class
+	c.) Create a class MobileDevice(simType:String) that extends ProcessingDevice
+	d.) create a class Laptop(graphicCard:String) that extends ProcessingDevice
+	e.) create class TV(DisplaySize:Int,DisplayType:String,isSmartTV:boolean) extends Product 
+	f.) create class WashingMachine(loadCapacity:Int,isAutomatic:boolean,doorType:String) extends Product 
+ 
+2.) Every step 1.) created class like Product,ProcessingDevice,MobileDevice,Laptop,TV,WashingMachine will have the following method
+     public void buildProduct(Map<String,String>)throws SOMEException{
+	// In this method  Map will have field name as the key and value will be the value from the excel row    for that column. One Map will hold all the field and value of one CSV Line
+ 	// Example ProductName will be the key and MotoxPlay will be the value for first row.
+        // for the second row the Map will be key=ProductName and value will be iPhone4s. like this one line will have key and value.
+
+	//Every class from the Map will put the keys and get value for those field/attribute that are instance variable of that class.
+	// call the super.buildProduct(map) so that parent/super class can populate its field from the Map	
+}
+
+3.) Create a class ProductCSVReader. that reads from the product.csv file
+	class ProductCSVReader{
+	    	//this method reads all the product from the product csv file and return it as a List of Product object
+		public List<Product> getAllProducts(){
+		 	 // Reads the first line that has field name splits by comma and stores as Array
+		  // Reads the next field value row and splits it by comma
+		  // Builds a HashMap by taking key=headerArray[0] and value=rowArray[0] likewise build whole HasMap representing the whole line.
+
+		  //From the Map get ProductType and 
+                  if(ProductType=Laptop) than create the Laptop class object and call the laptop.buildProduct(map) passing the above built map
+		}
+	}
+4.) Create a Class ProductService
+       class  {
+	        ProductService(){
+			//In the constructor call the ProductCSVReader and get all List<Product> store in instance variable		
+		}
+		public List<Product> getProductForType(String productType){
+			// Iterate through the ProductList and find the product of the given type.
+			// Use instanceOf on the Object to check what type it is.
+		}
+   	}
+}

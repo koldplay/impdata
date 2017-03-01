@@ -1,0 +1,44 @@
+Java Practice Programming
+
+NOTE:* Try to read the files from the ClassPath using classloader
+     * Every Exception Should be Wrapped into a CustomizedException (e.g. StockTradeInValidFormatException)
+    * Every constants should be public static final.
+1.) Read StockTrade from a Text FILE based upon location of the Fields read from the properties file.
+
+       Location of the Field seems the range :-
+             field = startIndex to  endIndex 
+        ***************************************
+    (security=0-5,close=5-14,low=14-23,adj_close=23-32,open=32-41,high=41-50,date=50-60,quantity=60-tillLastIndex)
+  
+    We will write a small java program that will read a StockTrade file and StockTradeConfig properties file) and convert it into the StockTrade object and does some analysis on it
+
+   -Text File will have following fields(Security:String,Date:util.Date,Open:Double,High:Double,Low:Double,Close:Double,Quantity:Integer,Adj Close:Double)
+   -create a Java class StockTrade(Domain Object) that will hold the value of one Stock Trade
+   
+   
+   IStockTradeReader
+    //reads the trade from Text file based upon the properties file Indexing and convert it into StockTrade Object and return it as List
+	public List<StockTrade> readStockTrades() throws StockTradeInValidFormatException
+	//Find the Stock trade out of the List that has max quantity
+	public StockTrade getMaxQuantityFromTrade(List<StockTrade>)
+	//Find the Stock trade out of the List that has min quantity
+	public StockTrade getMinQuantityFromTrade(List<StockTrade>)
+	//Return the difference of close vs low that is close-low with Date being the Key and value being the difference
+	public Map<Date,Double> getDailyTradingDifferential(List<StockTrade>)
+
+   StockTradeReader implements IStockTradeReader {
+   //The following first private method are advised to read and transform the Line from text file into Stock trade
+  //The another private method is to simply take the line read from the text file  and based upon the properties Stockconfig file it will try to fetch the value from the line.
+   private StockTrade parseStockLine(String csLine)
+    private String[] convertLineInArray(String csLine) 
+
+   }
+
+   PropertiesFileReader
+  //reads the properties file and returns the Map of key as fieldname and value as the rangeOf the field in the String form.
+   	public static Map<String, String> addConfigForStockTradeFromProperties() ;
+ 
+  
+SecurityCloseLowAdjCloseOpenHighDateQuantity
+
+  
