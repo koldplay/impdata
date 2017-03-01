@@ -1,0 +1,10 @@
+productId,productName,productType,price,warranty,manufecturedDt,screenSize,OS,batterySize,numCore,ram,simType,displaySize,displayType,isSmartTV,loadCapacity,isAutomatic,doorType,graphicsCard
+Pr001,MotoxPlay,Mobile,18000,1,20-10-16,5*5,Android,2500,2,16,GSM,,,,,,,
+Pr002,iPhone4s,Mobile,25000,2,20-08-16,5*5,IOS,2500,2,32,CDMA,,,,,,,
+Pr003,SamsungNote7,Mobile,42000,1,20-05-16,5*7,Android,3200,4,32,GSM,,,,,,,
+Pr004,SonyBravia2345,TV,56000,2,20-05-16,,,,,,,42,LED,yes,,,,
+Pr005,Micromax-1,TV,30000,1,19-05-16,,,,,,,32,LCD,no,,,,
+Pr006,LGTrom,WashinMachine,45000,3,19-05-16,,,,,,,,,,5,yes,FrontLoad,
+Pr007,WhirlPool,WashinMachine,45000,3,19-05-16,,,,,,,,,,8,yes,TopLoad,
+Pr008,DellLatitude,Laptop,60000,1,19-05-16,15,Windows,2500,4,32,,,,,,,,NVidia850M
+Pr009,AsusRog,Laptop,60000,1,19-05-16,15,Ubuntu,2500,4,32,,,,,,,,NVidia250M

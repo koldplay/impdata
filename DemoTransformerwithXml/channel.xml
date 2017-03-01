@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	
+<channel>
+	<name>biz runtime</name>
+	<topic>
+		<name>Obect Oriented Design Pattern</name>
+		<tutorial>Abstract Factory</tutorial>
+	</topic>
+	<topic>
+		<name>Java Message Service</name>
+		<tutorial>point to point</tutorial>
+	</topic>
+</channel>

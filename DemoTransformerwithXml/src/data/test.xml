@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type ="text/xsl" href="test.xsl"?>
+<persons>
+	<person username="JS1">
+		<name>John</name>
+		<family>Smith</family>
+	</person>
+	<person username="MI1">
+		<name>Morka</name>
+		<family>Ismincius</family>
+	</person>
+</persons>

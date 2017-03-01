@@ -1,0 +1,263 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xsd:element name="Shipment">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element type="ServiceType" name="Service" />
+				<xsd:element type="ShipperType" name="Shipper" />
+				<xsd:element type="ShipToAddressType" name="ShipToAddress" />
+				<xsd:element type="AlternateDeliveryAddressType" name="AlternateDeliveryAddress" />
+				<xsd:element type="ShipFromAddressType" name="ShipFromAddress" />
+				<xsd:element type="PackagesType" name="Packages" />
+				<xsd:element type="PaymentInformationType" name="PaymentInformation" />
+				<xsd:element type="LabelSpecification" name="LabelSpecification"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="ServiceType">
+		<xsd:sequence>
+			<xsd:element name="ServiceDesignation" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="DirectServiceType" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="HostServiceType" type="HostServiceTypeType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HostServiceTypeType">
+		<xsd:sequence>
+			<xsd:element type="HostNamingType" name="HostNaming" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HostNamingType">
+		<xsd:sequence>
+			<xsd:element name="HostSystem" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="NamingType" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element type="HostNameType" name="HostName" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HostNameType">
+		<xsd:sequence>
+			<xsd:element name="Type" type="xsd:string" minOccurs="1"
+				maxOccurs="unbounded" />
+			<xsd:element name="Carrier" type="xsd:string" minOccurs="1"
+				maxOccurs="unbounded" />
+			<xsd:element name="Service" type="xsd:string" minOccurs="1"
+				maxOccurs="unbounded" />
+			<xsd:element name="DirectName" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ShipperType">
+		<xsd:sequence>
+			<xsd:element name="shipper_id" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ShipToAddressType">
+		<xsd:sequence>
+			<xsd:element name="ContactAndAddress" type="ContactAndAddressType"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ContactAndAddressType">
+		<xsd:sequence>
+			<xsd:element name="AccountNumber" type="xsd:positiveInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="ContactId" type="xsd:positiveInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="PersonName" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="Title" type="xsd:string" minOccurs="1"
+				maxOccurs="unbounded" />
+			<xsd:element name="CompanyName" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="PhoneNumber" type="xsd:positiveInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="PhoneExtension" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="TollFreePhoneNumber" type="xsd:positiveInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="PagerNumber" type="xsd:positiveInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="FaxNumber" type="xsd:positiveInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="EmailAddress" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="StreetLine1" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="StreetLine2" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="StreetLine3" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="City" type="xsd:string" minOccurs="1"
+				maxOccurs="unbounded" />
+			<xsd:element name="StateOrProvinceCode" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="PostalCode" type="xsd:positiveInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="UrbanizationCode" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="CountryCode" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="CountryName" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="Residential" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="ResidentialAddressIndicator" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AlternateDeliveryAddressType">
+		<xsd:sequence>
+			<xsd:element name="ContactAndAddress" type="ContactAndAddressType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ShipFromAddressType">
+		<xsd:sequence>
+			<xsd:element name="ShipperNumber" type="xsd:string" />
+			<xsd:element name="ContactAndAddress" type="ContactAndAddressType"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PackagesType">
+		<xsd:sequence>
+			<xsd:element name="PackageCount" type="xsd:positiveInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="Package" type="PackageType" />
+			<xsd:element name="Package" type="PackageType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PackageType">
+		<xsd:sequence>
+			<xsd:element name="Machinable" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="DropOffTime" type="xsd:positiveInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="ShipDate" type="xsd:date" minOccurs="1"
+				maxOccurs="unbounded" />
+			<xsd:element name="PackagingType" type="PackagingTypeType" />
+			<xsd:element name="Dimensions" type="DimensionsType" />
+			<xsd:element name="Weight" type="WeightType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PackagingTypeType">
+		<xsd:sequence>
+			<xsd:element name="Code" type="xsd:string" minOccurs="1"
+				maxOccurs="unbounded" />
+			<xsd:element name="Description" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DimensionsType">
+		<xsd:sequence>
+			<xsd:element name="UnitOfMeasurement" type="UnitOfMeasurementType" />
+			<xsd:element name="Length" type="xsd:positiveInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="Width" type="xsd:positiveInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="Height" type="xsd:positiveInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="Units" type="xsd:string" minOccurs="1"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="UnitOfMeasurementType">
+		<xsd:sequence>
+			<xsd:element name="Code" type="xsd:string" minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="Description" type="xsd:string" minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="WeightType">
+		<xsd:sequence>
+			<xsd:element type="UnitOfMeasurementType" name="UnitOfMeasurement" />
+			<xsd:element name="Weight" type="xsd:double" minOccurs="1"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PaymentInformationType">
+		<xsd:sequence>
+			<xsd:element name="ShipmentCharge" type="ShipmentChargeType" />
+			<xsd:element name="SplitDutyVATIndicator" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ShipmentChargeType">
+		<xsd:sequence>
+			<xsd:element name="Type" type="xsd:string" minOccurs="1"
+				maxOccurs="unbounded" />
+			<xsd:element name="BillShipper" type="BillShipperType" />
+			<xsd:element name="BillReceiver" type="BillReceiverType" />
+			<xsd:element name="BillThirdParty" type="BillThirdPartyType" />
+			<xsd:element name="ConsigneeBilledIndicator" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BillShipperType">
+		<xsd:sequence>
+			<xsd:element name="AccountNumber" type="xsd:positiveInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="CreditCard" type="CreditCardType" />
+			<xsd:element name="AlternatePaymentMethod" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CreditCardType">
+		<xsd:sequence>
+			<xsd:element name="Type" type="xsd:string" minOccurs="1"
+				maxOccurs="unbounded" />
+			<xsd:element name="Number" type="xsd:positiveInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="ExpirationDate" type="xsd:date"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="SecurityCode" type="xsd:positiveInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="Address" type="AddressType" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AddressType">
+		<xsd:sequence>
+			<xsd:element name="AddressLine" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="City" type="xsd:string" minOccurs="1"
+				maxOccurs="unbounded" />
+			<xsd:element name="StateProvinceCode" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="PostalCode" type="xsd:positiveInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="CountryCode" type="xsd:positiveInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BillReceiverType">
+		<xsd:sequence>
+			<xsd:element name="AccountNumber" type="xsd:positiveInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="Address" type="AddressType1" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AddressType1">
+		<xsd:sequence>
+			<xsd:element name="PostalCode" type="xsd:positiveInteger" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BillThirdPartyType">
+		<xsd:sequence>
+			<xsd:element name="AccountNumber" type="xsd:positiveInteger"
+				minOccurs="1" maxOccurs="unbounded" />
+			<xsd:element name="Address" type="AddressType2" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AddressType2">
+		<xsd:sequence>
+			<xsd:element name="PostalCode" type="xsd:positiveInteger" />
+			<xsd:element name="CountryCode" type="xsd:positiveInteger" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LabelSpecification">
+		<xsd:sequence>
+			<xsd:element name="ImageType" type="xsd:string"
+				minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

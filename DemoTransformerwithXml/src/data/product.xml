@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE products[
+	<!ELEMENT product (id,name,price)>
+	<!ELEMENT id (#PCDATA)>
+	<!ELEMENT name (#PCDATA)>
+	<!ELEMENT price (#PCDATA)>
+]>
+<products>
+	<product>
+		<id>p01</id>
+		<name>p001</name>
+		<price>100</price>
+	</product>
+	<product>
+		<id>p02</id>
+		<name>p002</name>
+		<price>100</price>
+	</product>
+	<product>
+		<id>p03</id>
+		<name>p003</name>
+		<price>100</price>
+	</product>
+	<product>
+		<id>p04</id>
+		<name>p004</name>
+		<price>100</price>
+	</product>
+ </products>

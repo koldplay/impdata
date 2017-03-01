@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workorder>
+	<TenantId>609988</TenantId>
+	<SiteId>67049933</SiteId>
+	<Id>67049933</Id>
+	<Provider>
+		<Id>6786867</Id>
+		<Name>KostyaS‐XML</Name>
+		<SourceId>2014917018</SourceId>
+		<RequestedDate>2016/01/20 10:12:00</RequestedDate>
+		<ActionDate>2016-01-22T12:21:00</ActionDate>
+		<KVP />
+		<SourceProperties>
+			<Properties ProviderStatus="Boo Inc" />
+			<Properties Category="COMPLETED" />
+			<Properties Trade="SoWerxXML1" />
+		</SourceProperties>
+	</Provider>
+	<Customer>
+		<Id>7</Id>
+		<Name>Reassign test</Name>
+		<SalespersonId>123</SalespersonId>
+		<Notes>
+			<Note>
+				<Subject> WOUPDATE </Subject>
+				<NoteType>Reassign test</NoteType>
+				<NoteTypeId>2000057451</NoteTypeId>
+				<NoteText>
+
+					Provider reassigne : iuuiii WO Edited: status changed from IN
+					PROGRESS/PARTS
+					ON ORDER to INPROGRESS/INCOMPLETE. WO Edited: Scheduled Date changed
+					from Jan 29 2016 08:00 to Jan 30 2016 08:00. WO Edited: NTE changed
+					from 500 to (USD)400.
+
+				</NoteText>
+				<Internal>1</Internal>
+			</Note>
+		</Notes>
+	</Customer>
+	<Address>
+		<Id>609988</Id>
+		<AddressName>BUILDING EXTERIOR</AddressName>
+		<Street1 />
+		<Street2 />
+		<City />
+		<State />
+		<Country />
+		<PostalCode />
+		<Contacts>
+			<Contact>
+				<Name> WOUPDATE </Name>
+				<Phone>67049934</Phone>
+				<Email>SoWerxXML1</Email>
+				<KVP> WOUPDATE </KVP>
+			</Contact>
+		</Contacts>
+		<Notes>
+			<Note>
+				<Subject> WOUPDATE </Subject>
+				<NoteType>Reassign test</NoteType>
+				<NoteTypeId>2000057451</NoteTypeId>
+				<NoteText>
+
+					Provider reassigne : iuuiii WO Edited: status changed from IN
+					PROGRESS/PARTS
+					ON ORDER to INPROGRESS/INCOMPLETE. WO Edited: Scheduled Date changed
+					from Jan 29 2016 08:00 to Jan 30 2016 08:00. WO Edited: NTE changed
+					from 500 to (USD)400.
+
+				</NoteText>
+				<Internal>1</Internal>
+			</Note>
+		</Notes>
+		<KVP />
+	</Address>
+	<ShipToCustomer />
+	<ShipToAddress />
+	<BillToCustomer />
+	<BillToAddress />
+	<Division />
+	<ScheduledDate>2016/01/20 10:12:00</ScheduledDate>
+	<CallStatus>COMPLETED</CallStatus>
+	<CallType> WOUPDATE </CallType>
+	<CreatedBy>SoWerxXML1</CreatedBy>
+	<WorkOrderId>67049933</WorkOrderId>
+	<Description>
+
+		Provider reassigne : iuuiii WO Edited: status changed from IN PROGRESS/PARTS
+		ON ORDER to INPROGRESS/INCOMPLETE. WO Edited: Scheduled Date changed
+		from Jan 29 2016 08:00 to Jan 30 2016 08:00. WO Edited: NTE changed
+		from 500 to (USD)400.
+
+	</Description>
+	<CustomerWorkOrder />
+	<CustomerPurchaseOrder>
+		Reassign test
+
+
+		Provider reassigne : iuuiii WO Edited: status changed from IN PROGRESS/PARTS
+		ON ORDER to INPROGRESS/INCOMPLETE. WO Edited: Scheduled Date changed
+		from Jan 29 2016 08:00 to Jan 30 2016 08:00. WO Edited: NTE changed
+		from 500 to (USD)400.
+
+
+	</CustomerPurchaseOrder>
+	<Priority />
+	<CompletionDate />
+	<Job />
+	<OriginatingWorkOrderId />
+	<SalespersonId />
+	<UserDefines>
+		<UserDefine>
+			<KVP>67049934</KVP>
+		</UserDefine>
+	</UserDefines>
+	<Contacts>
+		<Contact>
+			<Id>2000057451</Id>
+			<Name>BUILDING EXTERIOR</Name>
+			<Phone>67049934</Phone>
+			<Email />
+			<KVP />
+		</Contact>
+	</Contacts>
+	<Appointments>
+		<Appointment>
+			<Id>67049933</Id>
+			<Resources>
+				problem
+				<Resource>
+					<Id>67049934</Id>
+					<Name>CAPITAL ‐ OTHER</Name>
+					<ResourceType> WOUPDATE </ResourceType>
+					<KVP>Reassign test</KVP>
+				</Resource>
+			</Resources>
+			<StartTime />
+			<EstimateHours />
+			<Equipments>
+				<Equipment>
+					<Id>609988</Id>
+					<Manufacturer>
+						<Id>67049933</Id>
+						<Name />
+						<Model>
+							<Name> WOUPDATE </Name>
+							<Description>
+
+								Provider reassigne : iuuiii WO Edited: status changed from IN
+								PROGRESS/PARTS
+								ON ORDER to INPROGRESS/INCOMPLETE. WO Edited: Scheduled Date
+								changed
+								from Jan 29 2016 08:00 to Jan 30 2016 08:00. WO Edited: NTE changed
+								from 500 to (USD)400.
+
+							</Description>
+						</Model>
+					</Manufacturer>
+					<EquipmentType> WOUPDATE </EquipmentType>
+					<SerialNumber>6786867</SerialNumber>
+					<Contract>
+						<Id />
+						<Customer>
+							<Id>67049933</Id>
+							<CustomerId>609988</CustomerId>
+							<CustomerName> WOUPDATE </CustomerName>
+						</Customer>
+						<StartDate />
+						<EndDate>2016/01/20 10:12:00</EndDate>
+						<Type> WOUPDATE </Type>
+						<Status>COMPLETED</Status>
+						<Amount>50000</Amount>
+					</Contract>
+					<Building>
+						<Id>67049934</Id>
+						<Name>CAPITAL ‐ OTHER</Name>
+						<Address>
+							<Id>67049934</Id>
+							<Street1>Reassign test</Street1>
+							<Street2>
+
+								Provider reassigne : iuuiii WO Edited: status changed from IN
+								PROGRESS/PARTS
+								ON ORDER to INPROGRESS/INCOMPLETE. WO Edited: Scheduled Date
+								changed
+								from Jan 29 2016 08:00 to Jan 30 2016 08:00. WO Edited: NTE changed
+								from 500 to (USD)400.
+
+							</Street2>
+							<City>COMPLETED</City>
+							<State> WOUPDATE </State>
+							<Country>CAPITAL ‐ OTHER</Country>
+							<PostalCode>6786867</PostalCode>
+						</Address>
+					</Building>
+					<Notes>
+						<Note>
+							<Subject> WOUPDATE </Subject>
+							<NoteType>Reassign test</NoteType>
+							<NoteTypeId>2000057451</NoteTypeId>
+							<NoteText>
+
+								Provider reassigne : iuuiii WO Edited: status changed from IN
+								PROGRESS/PARTS
+								ON ORDER to INPROGRESS/INCOMPLETE. WO Edited: Scheduled Date
+								changed
+								from Jan 29 2016 08:00 to Jan 30 2016 08:00. WO Edited: NTE changed
+								from 500 to (USD)400.
+
+							</NoteText>
+							<Internal>1</Internal>
+						</Note>
+					</Notes>
+				</Equipment>
+			</Equipments>
+		</Appointment>
+	</Appointments>
+	<Notes>
+		<Note>
+			<Subject> WOUPDATE </Subject>
+			<NoteType>Reassign test</NoteType>
+			<NoteTypeId>2000057451</NoteTypeId>
+			<NoteText>
+
+				Provider reassigne : iuuiii WO Edited: status changed from IN PROGRESS/PARTS
+				ON ORDER to INPROGRESS/INCOMPLETE. WO Edited: Scheduled Date changed
+				from Jan 29 2016 08:00 to Jan 30 2016 08:00. WO Edited: NTE changed
+				from 500 to (USD)400.
+
+			</NoteText>
+			<Internal>1</Internal>
+		</Note>
+	</Notes>
+	<CallSource>
+		<Id>2014917018</Id>
+		<KVP> WOUPDATE </KVP>
+	</CallSource>
+	<Constraints>
+		<Properties name="Boo Inc" />
+	</Constraints>
+</Workorder>

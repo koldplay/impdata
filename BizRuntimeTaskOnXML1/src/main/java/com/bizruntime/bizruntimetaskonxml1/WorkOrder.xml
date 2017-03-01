@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<?xml-stylesheet type ="text/xsl" href="WorkOrder.xml"?>
+<DATA2SC PIN="609988" ID="67049933">
+	<CALL TYPE=" WOUPDATE " DATETIME="2016/01/20 10:12:00" OPERATOR="KostyaS‐XML"
+		CALLER="test‐xml" CATEGORY="CAPITAL ‐ OTHER" SUB="2014917018" LOC="SoWerx‐XML"
+		TRADE="BUILDING EXTERIOR" PRO="2000057451" PRO_NAME="Boo Inc" TR_NUM="67049933"
+		WO_NUM="67049934" PO_NUM="67049934" STATUS="COMPLETED" PRIORITY="Sev 3"
+		EQP_ID="6786867" PRICE="1200" TAX="23" TAX2="20" NTE="50000"
+		SCHED_DATETIME="2016-01-27T10:16:00" CURRENCY="123" RECALL="1">
+		<PROBLEM>Reassign test</PROBLEM>
+		<ATTR NAME="NOTE" LINE="7" DATETIME="2016-01-22T12:21:00"
+			CREATED_BY="SoWerxXML1" NEW_SCHED_DATETIME="2016-01-30T08:00:00"
+			SENT_TO="">
+			
+			Provider reassigne : iuuiii WO Edited: status changed from IN PROGRESS/PARTS
+			ON ORDER to INPROGRESS/INCOMPLETE. WO Edited: Scheduled Date changed
+			from Jan 29 2016 08:00 to Jan 30 2016 08:00. WO Edited: NTE changed
+			from 500 to (USD)400.
+			
+		</ATTR>
+	</CALL>
+</DATA2SC>

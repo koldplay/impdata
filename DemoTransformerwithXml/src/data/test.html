@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if(this.readyState == 4 and this.status == 200 ){
+			showResult(xhttp.responseXML);
+		}
+	};
+	xttp.open("GET","product.xml" , false);
+	xttp.send();
+	function showResult(xml){
+		var txt = "";
+		path = "/products/product/id";
+		if(xml.evaluate){
+			var node = xml.evaluate(path , xml,null,XPathResult.ANY_TYPE,null);
+			var result = node.iterateNext();
+			while(result){
+				txt += result.childNode[0].nodeValue+"<br/>"
+				result = node.iterateNext();
+			}
+	    } else if (window.ActiveXObject || xhttp.responseType == "msxml-document") {
+	        xml.setProperty("SelectionLanguage", "XPath");
+	        nodes = xml.selectNodes(path);
+	        for (i = 0; i < nodes.length; i++) {
+	            txt += nodes[i].childNodes[0].nodeValue + "<br>";
+	        }
+	    }
+	    document.getElementById("demo").innerHTML = txt;
+	}
+	}
+</script>
+</head>
+<body>
+	<p id="demo"></p> 
+	
+</body>
+</html>

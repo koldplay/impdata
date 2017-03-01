@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workorder>
+	<TenantId />
+	<SiteId />
+	<Id />
+	<Provider>
+		<Id />
+		<Name />
+		<SourceId />
+		<RequestedDate />
+		<ActionDate />
+		<KVP />
+		<SourceProperties>
+			<Properties ProviderStatus="" />
+			<Properties Category="" />
+			<Properties Trade="" />
+		</SourceProperties>
+	</Provider>
+	<Customer>
+		<Id />
+		<Name />
+		<SalespersonId />
+		<Notes>
+			<Note />
+		</Notes>
+	</Customer>
+	<ShipToCustomer />
+	<ShipToAddress />
+	<BillToCustomer />
+	<BillToAddress />
+	<Division />
+	<ScheduledDate />
+	<CallStatus />
+	<CallType />
+	<CreatedBy />
+	<WorkOrderId />
+	<Description />
+	<CustomerWorkOrder />
+	<CustomerPurchaseOrder />
+	<Priority />
+	<CompletionDate />
+	<Job />
+	<OriginatingWorkOrderId />
+	<SalespersonId />
+	<UserDefines>
+		<UserDefine>
+			<KVP />
+		</UserDefine>
+	</UserDefines>
+	<Contacts>
+		<Contact>
+			<Id />
+			<Name />
+			<Phone />
+			<Email />
+			<KVP />
+		</Contact>
+	</Contacts>
+	<Appointments>
+		<Appointment>
+			<Id />
+			<Resources>
+				<Resource>
+					<Id />
+					<Name />
+					<ResourceType />
+					<KVP />
+				</Resource>
+			</Resources>
+			<StartTime />
+			<EstimateHours />
+			<Equipments>
+				<Equipment>
+					<Id />
+					<Manufacturer>
+						<Id />
+						<Name />
+						<Model>
+							<Name />
+							<Description />
+						</Model>
+					</Manufacturer>
+					<EquipmentType />
+					<SerialNumber />
+					<Contract>
+						<Id />
+						<Customer>
+							<Id />
+							<CustomerId />
+							<CustomerName />
+						</Customer>
+						<StartDate />
+						<EndDate />
+						<Type />
+						<Status />
+						<Amount />
+					</Contract>
+					<Building>
+						<Id />
+						<Name />
+						<Address>
+							<Id />
+							<Street1 />
+							<Street2 />
+							<City />
+							<State />
+							<Country />
+							<PostalCode />
+						</Address>
+					</Building>
+					<Notes>
+						<Note />
+					</Notes>
+				</Equipment>
+			</Equipments>
+		</Appointment>
+	</Appointments>
+	<Notes>
+		<Note />
+	</Notes>
+	<CallSource>
+		<Id />
+		<KVP />
+	</CallSource>
+	<Constraints>
+		<Properties name="" />
+	</Constraints>
+</Workorder>

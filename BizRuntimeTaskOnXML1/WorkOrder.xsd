@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	attributeFormDefault="qualified" elementFormDefault="qualified">
+	<xsd:element name="DATA2SC">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="CALL" type="CALLType" />
+			</xsd:sequence>
+			<xsd:attribute name="PIN" type="xsd:integer" />
+			<xsd:attribute name="ID" type="xsd:integer" />
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="CALLType">
+		<xsd:sequence>
+			<xsd:element name="PROBLEM" type="xsd:string" />
+			<xsd:element name="ATTR" type="ATTRAttributeType" />
+		</xsd:sequence>
+		<xsd:attributeGroup ref="AttributeType" />
+	</xsd:complexType>
+	<xsd:attributeGroup name="AttributeType">
+		<xsd:attribute name="TYPE" type="xsd:string" />
+		<xsd:attribute name="DATETIME" type="xsd:string" />
+		<xsd:attribute name="OPERATOR" type="xsd:string" />
+		<xsd:attribute name="CALLER" type="xsd:string" />
+		<xsd:attribute name="CATEGORY" type="xsd:string" />
+		<xsd:attribute name="SUB" type="xsd:integer" />
+		<xsd:attribute name="LOC" type="xsd:string" />
+		<xsd:attribute name="TRADE" type="xsd:string" />
+		<xsd:attribute name="PRO" type="xsd:integer" />
+		<xsd:attribute name="PRO_NAME" type="xsd:string" />
+		<xsd:attribute name="TR_NUM" type="xsd:integer" />
+		<xsd:attribute name="WO_NUM" type="xsd:integer" />
+		<xsd:attribute name="PO_NUM" type="xsd:integer" />
+		<xsd:attribute name="STATUS" type="xsd:string" />
+		<xsd:attribute name="PRIORITY" type="xsd:string" />
+		<xsd:attribute name="EQP_ID" type="xsd:integer" />
+		<xsd:attribute name="PRICE" type="xsd:integer" />
+		<xsd:attribute name="TAX" type="xsd:int" />
+		<xsd:attribute name="TAX2" type="xsd:int" />
+		<xsd:attribute name="NTE" type="xsd:integer" />
+		<xsd:attribute name="SCHED_DATETIME" type="xsd:dateTime" />
+		<xsd:attribute name="CURRENCY" type="xsd:integer" />
+		<xsd:attribute name="RECALL" type="xsd:int" />
+	</xsd:attributeGroup>
+	<xsd:complexType name="ATTRAttributeType">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="NAME" type="xsd:string" />
+				<xsd:attribute name="LINE" type="xsd:int" />
+				<xsd:attribute name="DATETIME" type="xsd:dateTime" />
+				<xsd:attribute name="CREATED_BY" type="xsd:string" />
+				<xsd:attribute name="NEW_SCHED_DATETIME" type="xsd:dateTime" />
+				<xsd:attribute name="SENT_TO" type="xsd:string" />
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+
+</xsd:schema>

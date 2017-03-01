@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+	<element name="channel">
+		
+        <complexType>
+			<sequence>
+				<element name="name" type="string" minOccurs="1" maxOccurs="unbounded"></element>
+				<element ref="topic" minOccurs="1" maxOccurs="unbounded"></element>
+			</sequence>
+		</complexType>
+    </element>	
+	<element name="topic">
+		
+        <complexType>
+			<sequence>
+				<element name="name" type="string"></element>
+			</sequence>
+		</complexType>
+    </element>
+	<element name="tutorial"></element>
+</schema>
+

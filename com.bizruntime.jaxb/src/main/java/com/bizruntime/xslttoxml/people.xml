@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" version="2.0" href="people.xsl"?>
+
+
+<people>
+	<person personId="p01">
+		<name>Mark Willison</name>
+		<address>911 somewhere </address>
+		<tel>+443163486156</tel>
+		<email>mark.wil@mark.com</email>
+	</person>
+	<person personId="p02">
+		<name>Tracy Willison</name>
+		<address>911 somewhere </address>
+		<tel>+44389653486156</tel>
+		<email>tracy.wil@mark.com</email>
+	</person>
+	<person personId="p03">
+		<name>Raph Willison</name>
+		<address>911 somewhere </address>
+		<tel>+4431479846486156</tel>
+		<email>raph.wil@mark.com</email>
+	</person>
+</people>
