@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UserCSVReader"
+	targetNamespace="http://userproduct.bizruntime.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:tns="http://userproduct.bizruntime.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<wsdl:types>
+		<xsd:schema attributeFormDefault="unqualified"
+			elementFormDefault="unqualified" targetNamespace="http://userproduct.bizruntime.com/">
+			<xsd:element name="getAllUsers">
+				<xsd:complexType>
+					<xsd:sequence />
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="getAllUsersResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="return" type="tns:user" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:complexType name="user">
+				<xsd:sequence>
+					<xsd:element name="userId" type="xsd:string" />
+					<xsd:element name="username" type="xsd:string" />
+					<xsd:element name="email" type="xsd:string" />
+					<xsd:element name="phoneNumber" type="xsd:string" />
+					<xsd:element name="city" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="parseUserCsv">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="data" type="xsd:string" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="parseUserCsvResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="return" type="tns:user" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="getAllUsers">
+		<wsdl:part name="parameters" element="tns:getAllUsers">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getAllUsersResponse">
+		<wsdl:part name="parameters" element="tns:getAllUsersResponse">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="parseUserCsv">
+		<wsdl:part name="parameters" element="tns:parseUserCsv">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="parseUserCsvResponse">
+		<wsdl:part name="parameters" element="tns:parseUserCsvResponse">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="UserCSVReader">
+		<wsdl:operation name="getAllUsers">
+			<wsdl:input name="getAllUsers" message="tns:getAllUsers">
+			</wsdl:input>
+			<wsdl:output name="getAllUsersResponse" message="tns:getAllUsersResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="parseUserCsv">
+			<wsdl:input name="parseUserCsv" message="tns:parseUserCsv">
+			</wsdl:input>
+			<wsdl:output name="parseUserCsvResponse" message="tns:parseUserCsvResponse">
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="UserCSVReaderSOAPBinding" type="tns:UserCSVReader">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="getAllUsers">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="getAllUsers">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getAllUsersResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="parseUserCsv">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="parseUserCsv">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="parseUserCsvResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="UserCSVReader">
+		<wsdl:port name="UserCSVReaderSOAPPort" binding="tns:UserCSVReaderSOAPBinding">
+			<soap:address
+				location="http://localhost:7070/UserProductWebService/services/UserCSVReaderSOAPPort" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

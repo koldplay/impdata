@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ProductAvailabilityServiceService" targetNamespace="http://userproduct.bizruntime.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://userproduct.bizruntime.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+<import namespace="http://userproduct.bizruntime.com/" schemaLocation="productavailabilityservice_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="getAllProductForUserForCategory">
+    <wsdl:part name="parameters" element="tns:getAllProductForUserForCategory">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllProductForUser">
+    <wsdl:part name="parameters" element="tns:getAllProductForUser">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllProductForUserResponse">
+    <wsdl:part name="parameters" element="tns:getAllProductForUserResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllProductForUserForCategoryResponse">
+    <wsdl:part name="parameters" element="tns:getAllProductForUserForCategoryResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ProductAvailabilityService">
+    <wsdl:operation name="getAllProductForUserForCategory">
+      <wsdl:input name="getAllProductForUserForCategory" message="tns:getAllProductForUserForCategory">
+    </wsdl:input>
+      <wsdl:output name="getAllProductForUserForCategoryResponse" message="tns:getAllProductForUserForCategoryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllProductForUser">
+      <wsdl:input name="getAllProductForUser" message="tns:getAllProductForUser">
+    </wsdl:input>
+      <wsdl:output name="getAllProductForUserResponse" message="tns:getAllProductForUserResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProductAvailabilityServiceServiceSoapBinding" type="tns:ProductAvailabilityService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getAllProductForUserForCategory">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllProductForUserForCategory">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllProductForUserForCategoryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllProductForUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllProductForUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllProductForUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductAvailabilityServiceService">
+    <wsdl:port name="ProductAvailabilityServicePort" binding="tns:ProductAvailabilityServiceServiceSoapBinding">
+      <soap:address location="http://localhost:7070/UserProductWithWeb/services/ProductAvailabilityServicePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

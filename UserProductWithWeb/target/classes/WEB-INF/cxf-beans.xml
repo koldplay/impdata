@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	<jaxws:endpoint xmlns:tns="http://userproduct.bizruntime.com/"
+		id="productavailabilityservice" implementor="com.bizruntime.userproduct.ProductAvailabilityService"
+		wsdlLocation="wsdl/productavailabilityservice.wsdl" endpointName="tns:ProductAvailabilityServicePort"
+		serviceName="tns:ProductAvailabilityServiceService" address="/ProductAvailabilityServicePort">
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+	</jaxws:endpoint>
+	<jaxws:endpoint xmlns:tns="http://userproduct.bizruntime.com/"
+		id="productcsvreader" implementor="com.bizruntime.userproduct.ProductCSVReader"
+		wsdlLocation="wsdl/productcsvreader.wsdl" endpointName="tns:ProductCSVReaderPort"
+		serviceName="tns:ProductCSVReaderService" address="/ProductCSVReaderPort">
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+	</jaxws:endpoint>
+	<jaxws:endpoint xmlns:tns="http://userproduct.bizruntime.com/"
+		id="usercsvreader" implementor="com.bizruntime.userproduct.UserCSVReader"
+		wsdlLocation="wsdl/usercsvreader.wsdl" endpointName="tns:UserCSVReaderPort"
+		serviceName="tns:UserCSVReaderService" address="/UserCSVReaderPort">
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+	</jaxws:endpoint>
+</beans>

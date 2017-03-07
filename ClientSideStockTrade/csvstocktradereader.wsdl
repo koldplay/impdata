@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CSVStockTradeReaderService" targetNamespace="http://stocktrade.bizruntime.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://stocktrade.bizruntime.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+<import namespace="http://stocktrade.bizruntime.com/" schemaLocation="csvstocktradereader_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="getDailyTradingDifferential">
+    <wsdl:part name="parameters" element="tns:getDailyTradingDifferential">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="StockTradeInValidFormatException">
+    <wsdl:part name="StockTradeInValidFormatException" element="tns:StockTradeInValidFormatException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="readStockTradesResponse">
+    <wsdl:part name="parameters" element="tns:readStockTradesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMaxVolumeTrade">
+    <wsdl:part name="parameters" element="tns:getMaxVolumeTrade">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMinVolumeTradeResponse">
+    <wsdl:part name="parameters" element="tns:getMinVolumeTradeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMaxVolumeTradeResponse">
+    <wsdl:part name="parameters" element="tns:getMaxVolumeTradeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMinVolumeTrade">
+    <wsdl:part name="parameters" element="tns:getMinVolumeTrade">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDailyTradingDifferentialResponse">
+    <wsdl:part name="parameters" element="tns:getDailyTradingDifferentialResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="readStockTrades">
+    <wsdl:part name="parameters" element="tns:readStockTrades">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CSVStockTradeReader">
+    <wsdl:operation name="getDailyTradingDifferential">
+      <wsdl:input name="getDailyTradingDifferential" message="tns:getDailyTradingDifferential">
+    </wsdl:input>
+      <wsdl:output name="getDailyTradingDifferentialResponse" message="tns:getDailyTradingDifferentialResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMaxVolumeTrade">
+      <wsdl:input name="getMaxVolumeTrade" message="tns:getMaxVolumeTrade">
+    </wsdl:input>
+      <wsdl:output name="getMaxVolumeTradeResponse" message="tns:getMaxVolumeTradeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMinVolumeTrade">
+      <wsdl:input name="getMinVolumeTrade" message="tns:getMinVolumeTrade">
+    </wsdl:input>
+      <wsdl:output name="getMinVolumeTradeResponse" message="tns:getMinVolumeTradeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="readStockTrades">
+      <wsdl:input name="readStockTrades" message="tns:readStockTrades">
+    </wsdl:input>
+      <wsdl:output name="readStockTradesResponse" message="tns:readStockTradesResponse">
+    </wsdl:output>
+      <wsdl:fault name="StockTradeInValidFormatException" message="tns:StockTradeInValidFormatException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CSVStockTradeReaderServiceSoapBinding" type="tns:CSVStockTradeReader">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getDailyTradingDifferential">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDailyTradingDifferential">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDailyTradingDifferentialResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMaxVolumeTrade">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getMaxVolumeTrade">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMaxVolumeTradeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMinVolumeTrade">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getMinVolumeTrade">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMinVolumeTradeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="readStockTrades">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="readStockTrades">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="readStockTradesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="StockTradeInValidFormatException">
+        <soap:fault name="StockTradeInValidFormatException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CSVStockTradeReaderService">
+    <wsdl:port name="CSVStockTradeReaderPort" binding="tns:CSVStockTradeReaderServiceSoapBinding">
+      <soap:address location="http://localhost:7070/StockTradeWithWeb/services"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

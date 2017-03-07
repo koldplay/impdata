@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="productavailabilityservice"
+	targetNamespace="http://productavailabilityservice.bizruntime.com/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://productavailabilityservice.bizruntime.com/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<wsdl:types>
+		<xsd:schema elementFormDefault="unqualified"
+			targetNamespace="http://productavailabilityservice.bizruntime.com/"
+			version="1.0" xmlns:tns="http://productavailabilityservice.bizruntime.com/"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			<xsd:element name="getAllProductForUser" type="tns:getAllProductForUser" />
+			<xsd:element name="getAllProductForUserForCategory" type="tns:getAllProductForUserForCategory" />
+			<xsd:element name="getAllProductForUserForCategoryResponse"
+				type="tns:getAllProductForUserForCategoryResponse" />
+			<xsd:element name="getAllProductForUserResponse" type="tns:getAllProductForUserResponse" />
+			<xsd:complexType name="getAllProductForUserForCategory">
+				<xsd:sequence>
+					<xsd:element minOccurs="0" name="arg0" type="xs:string" />
+					<xsd:element minOccurs="0" name="arg1" type="xs:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getAllProductForUserForCategoryResponse">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="return"
+						type="tns:product" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="product">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0"
+						name="availableCity" nillable="true" type="xs:string" />
+					<xsd:element minOccurs="0" name="price" type="xs:double" />
+					<xsd:element minOccurs="0" name="productCategory" type="xs:string" />
+					<xsd:element minOccurs="0" name="productId" type="xs:string" />
+					<xsd:element minOccurs="0" name="productName" type="xs:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getAllProductForUser">
+				<xsd:sequence>
+					<xsd:element minOccurs="0" name="arg0" type="xs:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="getAllProductForUserResponse">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="return"
+						type="tns:product" />
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="getAllProductForUserForCategoryResponse">
+		<wsdl:part name="parameters"
+			element="tns:getAllProductForUserForCategoryResponse">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getAllProductForUserResponse">
+		<wsdl:part name="parameters" element="tns:getAllProductForUserResponse">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getAllProductForUserForCategory">
+		<wsdl:part name="parameters" element="tns:getAllProductForUserForCategory">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getAllProductForUser">
+		<wsdl:part name="parameters" element="tns:getAllProductForUser">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="productavailabilityservice">
+		<wsdl:operation name="getAllProductForUser">
+			<wsdl:input name="getAllProductForUser" message="tns:getAllProductForUser">
+			</wsdl:input>
+			<wsdl:output name="getAllProductForUserResponse" message="tns:getAllProductForUserResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getAllProductForUserForCategory">
+			<wsdl:input name="getAllProductForUserForCategory"
+				message="tns:getAllProductForUserForCategory">
+			</wsdl:input>
+			<wsdl:output name="getAllProductForUserForCategoryResponse"
+				message="tns:getAllProductForUserForCategoryResponse">
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="productavailabilityserviceSOAPBinding"
+		type="tns:productavailabilityservice">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="getAllProductForUser">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="getAllProductForUser">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getAllProductForUserResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getAllProductForUserForCategory">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="getAllProductForUserForCategory">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getAllProductForUserForCategoryResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="productavailabilityservice">
+		<wsdl:port name="productavailabilityserviceSOAPPort"
+			binding="tns:productavailabilityserviceSOAPBinding">
+			<soap:address
+				location="http://localhost:7070/UserProductWebService/services/productavailabilityserviceSOAPPort" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

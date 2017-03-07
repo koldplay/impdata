@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://stocktrade.bizruntime.com/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://stocktrade.bizruntime.com/">
+  <xs:element name="getDailyTradingDifferential" type="tns:getDailyTradingDifferential"/>
+  <xs:element name="getDailyTradingDifferentialResponse" type="tns:getDailyTradingDifferentialResponse"/>
+  <xs:element name="getMaxVolumeTrade" type="tns:getMaxVolumeTrade"/>
+  <xs:element name="getMaxVolumeTradeResponse" type="tns:getMaxVolumeTradeResponse"/>
+  <xs:element name="getMinVolumeTrade" type="tns:getMinVolumeTrade"/>
+  <xs:element name="getMinVolumeTradeResponse" type="tns:getMinVolumeTradeResponse"/>
+  <xs:element name="readStockTrades" type="tns:readStockTrades"/>
+  <xs:element name="readStockTradesResponse" type="tns:readStockTradesResponse"/>
+  <xs:complexType name="getDailyTradingDifferential">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="arg0" type="tns:stockTrdae"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="stockTrdae">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="adj_Close" type="xs:double"/>
+      <xs:element minOccurs="0" name="close" type="xs:double"/>
+      <xs:element minOccurs="0" name="date" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="high" type="xs:double"/>
+      <xs:element minOccurs="0" name="low" type="xs:double"/>
+      <xs:element minOccurs="0" name="open" type="xs:double"/>
+      <xs:element minOccurs="0" name="security" type="xs:string"/>
+      <xs:element minOccurs="0" name="volume" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDailyTradingDifferentialResponse">
+    <xs:sequence>
+      <xs:element name="_return">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="tns:date"/>
+                  <xs:element minOccurs="0" name="value" type="xs:double"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="date">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getMaxVolumeTrade">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="arg0" type="tns:stockTrdae"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMaxVolumeTradeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:stockTrdae"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMinVolumeTrade">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="arg0" type="tns:stockTrdae"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMinVolumeTradeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:stockTrdae"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="readStockTrades">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="readStockTradesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:stockTrdae"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StockTradeInValidFormatException" type="tns:StockTradeInValidFormatException"/>
+  <xs:complexType name="StockTradeInValidFormatException">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>
