@@ -1,0 +1,15 @@
+ProductId,ProductName,ProductCategory,Price,availableCity
+Pro001,MotoxPlay,Mobile,20000,Pune/Bangalore/Delhi/Mumbai
+Pro002,OnePlusOne,Mobile,15000,Bangalore/Delhi
+Pro003,OnePlusTwo,Mobile,13000,Delhi
+Pro004,iPhone4s,Mobile,30000,Pune/Bangalore/Delhi
+Pro005,iPhone5,Mobile,21000,Mumbai/Chennai
+Pro006,SamsungNote7,Mobile,40000,Mumbai
+Pro007,MotoG,Mobile,15000,Pune/Bangalore/Delhi/Mumbai
+Pro008,Asus-Rog,Laptop,80000,Mumbai/Pune
+Pro009,Dell Latitude,Laptop,60000,Chennai
+Pro010,HP Gratitude,Laptop,210000,Bangalore/Delhi
+Pro011,AppleMacPro,Laptop,120000,Pune/Bangalore/Delhi/Mumbai/Chennai
+Pro012,AppleMacHome,Laptop,90000,Pune
+Pro013,LG Washing MC,WashingMachin,30000,Pune/Bangalore/Delhi/Mumbai/Chennai
+Pro014,LGTV,TV,40000,Chennai
