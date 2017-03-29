@@ -1,0 +1,10 @@
+<ul>
+    <li *ngFor= "let product of Product">
+       {{product.product.productId}} , {{product.product.productName}} , {{product.product.productCategory}},{{product.product.price}},
+       <ul>
+           <li *ngFor = "let city of product.product.availableCity">
+                    {{city}}               
+           </li>
+       </ul>
+    </li>
+</ul>

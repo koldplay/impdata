@@ -1,0 +1,5 @@
+[
+        {"id " : 1 , "name" : "krishna" , "gender" : "male"},
+        {"id " : 2 , "name" : "rohit" , "gender" : "male"},        
+        {"id " : 3 , "name" : "gopi" , "gender" : "male"}        
+]

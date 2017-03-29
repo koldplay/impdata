@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>User Details</h1>
+  <form [formGroup]= "userForm" (click) = "ondelete(userId.value)">
+    <div class="form-group">
+      <label>UserId</label>
+      <input type="text" #userId class="form-control" formControlName = "userId">
+    </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

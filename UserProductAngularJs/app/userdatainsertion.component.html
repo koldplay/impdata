@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>User Details</h1>
+  <form [formGroup]= "userForm" (ngSubmit) = "onSubmit(userId , userName , email , phoneNumber , city)">
+    <div class="form-group">
+      <label>UserId</label>
+      <input type="text" #userId ngModel class="form-control" formControlName = "userId">
+    </div>
+    <div class="form-group">
+      <label>UserName</label>
+      <input type="text" #username ngModel class="form-control" formControlName = "userName">
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" #email ngModel class="form-control" formControlName = "email">
+    </div>
+    <div class="form-group">
+      <label>PhoneNumber</label>
+      <input type="text" #phonenumber ngModel class="form-control" formControlName = "phoneNumber">
+    </div>
+    <div class="form-group">
+      <label>City</label>
+      <input type="text" #city ngModel class="form-control" formControlName = "city">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button> 
+  </form>
+</div>
