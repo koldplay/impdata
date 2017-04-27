@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configures the Camel Context -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+	<import resource="routeContext.xml" />
+
+	<camelContext xmlns="http://camel.apache.org/schema/spring">
+
+		<!-- (primitive, primitive) : constant -->
+		<route id="primprim">
+			<from uri="timer://methodName?period=2000" />
+			<to uri="bean:method?method=getName(data,print)" />
+			<to uri="stream:out" />
+		</route>
+
+		<!-- ) (primitive, Exchange) -->
+		<route id="primexch">
+			<from uri="timer://methodprimexch?period=2000" />
+			<setHeader headerName="myheader">
+				<constant>headerdata</constant>
+			</setHeader>
+			<to uri="bean:method?method=getNamePrimExch(data)" />
+			<to uri="stream:out" />
+		</route>
+
+		<!-- (primitive, primitive): from headers -->
+		<route id="primhead">
+			<from uri="timer://head?period=2000" />
+			<setHeader headerName="myheader">
+				<constant>myheader</constant>
+			</setHeader>
+			<setHeader headerName="myheader1">
+				<constant>myheader1</constant>
+			</setHeader>
+			<to
+				uri="bean:method?method=getNamefromHeader(${header.myheader},${header.myheader1})" />
+			<to uri="stream:out" />
+		</route>
+
+		<!-- (object, Exchange) -->
+		<route>
+			<from uri="timer://obj?period=2000" />
+			
+			<to uri="bean:method?method=printObj(ref:emp)" />
+		</route>
+		<!-- (Exchange , primitive) -->
+		
+		<route>
+			<from uri="timer://obj?period=2000" />
+			<setHeader headerName="myheader">
+				<constant>myheader</constant>
+			</setHeader>
+			<setHeader headerName="myheader1">
+				<constant>myheader1</constant>
+			</setHeader>
+			<to uri="bean:method?method=getNameExchPrim(*,data)" />
+		</route>
+
+	</camelContext>
+
+	<bean id="method"
+		class="com.bizruntime.methodinvocaionwithparameter.MethodInvoke" />
+	<bean id="emp" class="com.bizruntime.methodinvocaionwithparameter.Employee" />
+
+</beans>  

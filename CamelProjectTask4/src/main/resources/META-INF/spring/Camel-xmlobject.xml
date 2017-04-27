@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+	
+	<bean id="person" class="com.bizruntime.xmlobject.Person"/>
+	<bean id="personmethod" class="com.bizruntime.xmlobject.MethodInvoke"/>	
+	
+  <camelContext xmlns="http://camel.apache.org/schema/spring">
+  	
+  	<dataFormats>
+  		 <jacksonxml id="jackson" unmarshalTypeName="com.bizruntime.xmlobject.Person" useList="true" prettyPrint="true" />	 
+  	</dataFormats>
+  	<route>
+  		<from uri="file:src/data?fileName=message1.xml"/>
+  		<unmarshal ref="jackson"/>  		
+  		<log message="${body}"/>
+  		<to uri="bean:personmethod?method=dataPerson(Exchange)"/>
+  		<marshal ref="jackson"/>
+  		<log message="daya ${body}"/>
+<!--   		<to uri="bean:personmethod?method=dataPersonmarshal(Exchange)"/> -->
+  		<to uri="file:target/xml?fileName=manage.xml"/>
+  	</route>
+  </camelContext>
+</beans>  	  	

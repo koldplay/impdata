@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<books>
+	<book category="Tech" title="Apache Camel Developer's Cookbook">
+		<category>Tech</category>
+		<title>Apache Camel Developer's Cookbook</title>
+		<authors>
+			<author>Scott Cranton</author>
+			<author>Jakub Korab</author>
+		</authors>
+	</book>
+	<book category="Cooking" title="Camel Cookbook">
+		<category>Cooking</category>
+		<title>Camel Cookbook</title>
+		<authors>
+			<author>Heston Ramsey</author>
+			<author>Gordon Blumenthal</author>
+		</authors>
+	</book>
+</books>

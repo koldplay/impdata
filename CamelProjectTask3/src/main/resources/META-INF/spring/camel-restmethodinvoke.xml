@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configures the Camel Context -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+	<bean id="mybean" class="cmo.bizruntime.restletdatareading.Mybean" />
+
+	<camelContext xmlns="http://camel.apache.org/schema/spring">
+		<route>
+			<from
+				uri="restlet:http://127.0.0.1:7071/UserProductJersey/webresources/userpoduct/call/{Value1}/{Value2}?restletMethod=POST" />
+			<to uri="bean:mybean?method=call({Value1},{Value2})" />
+			<log message="data is fetching" />
+			<to uri="stream:out" />
+		</route>
+		<route>
+			<from uri="restlet:http://127.0.0.1:7071/callxml?restletMethod=POST" />
+			<setHeader headerName="param1">
+				<xpath resultType="java.lang.Integer">
+					/root/firstdata
+				</xpath>
+			</setHeader>
+			<setHeader headerName="param2">
+				<xpath resultType="java.lang.Integer">
+					/root/seconddata
+				</xpath>
+			</setHeader>
+			<setHeader headerName="param3">
+				<xpath resultType="java.lang.Integer">
+					/root/thirddata
+				</xpath>
+			</setHeader>
+			<to
+				uri="bean:mybean?method=callxml(${header.param1} , ${header.param2},${header.param3})" />
+			<log message="reading from xml" />
+
+		</route>
+		<route>
+			<from uri="restlet:http://127.0.0.1:7071/calljson?restletMethod=POST" />
+
+			<setHeader headerName="param1">
+				<jsonpath resultType="java.lang.Integer">$.root.firstdata</jsonpath>
+			</setHeader>
+<!-- 			<setHeader headerName="param2"> -->
+<!-- 				<jsonpath resultType="java.lang.Integer">$.root.seconddata</jsonpath> -->
+<!-- 			</setHeader> -->
+			<to uri="bean:mybean?method=calljson(${header.param1})" />
+			<log message="reading from json"/>
+		</route>
+		<route>
+			<from uri="restlet:http://127.0.0.1:7071/callException?restletMethod=GET" />
+			<onException>
+				<exception>java.lang.Exception</exception>
+
+				<handled>
+					<constant>NumberFormate exception</constant>
+				</handled>
+			</onException>
+			<to uri="bean:mybean?method=callException(Exchange)" />
+		</route>
+	</camelContext>
+
+
+
+</beans>       

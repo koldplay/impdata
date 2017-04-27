@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd 
+						http://www.springframework.org/schema/context 
+				        http://www.springframework.org/schema/context/spring-context-3.0.xsd 		
+				        http://www.springframework.org/schema/tx 
+				        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://http://www.springframework.org/schema/util"
+	xmlns:p="http://http://www.springframework.org/schema/p" xmlns:c="http://http://www.springframework.org/schema/c"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx ="http://www.springframework.org/schema/tx" >
+
+	<context:property-placeholder location="classpath:connection.properties" />
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		scope="singleton">
+		<property name="driverClassName" value="${driverClassName}"></property>
+		<property name="url" value="${url}"></property>
+		<property name="username" value="${username}"></property>
+		<property name="password" value="${password}"></property>
+		<property name="MinIdle" value="${MinIdle}"></property>
+		<property name="MaxIdle" value="${MaxIdle}"></property>
+		<property name="MaxOpenPreparedStatements" value="${MaxOpenPreparedStatements}"></property>
+	</bean>
+
+	<bean id="databaseUtil" class="com.bizruntime.SpringDAOProject.DBUtil">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="dao" class="com.bizruntime.SpringDAOProject.StudentDataCRUDDAOImpl">
+		<property name="dbUtil" ref="databaseUtil" />
+	</bean>
+
+
+
+	<bean id="student" class="com.bizruntime.SpringDAOProject.Student">
+		<property name="rollno" value="10" />
+		<property name="fname" value="Durgesh" />
+		<property name="lname" value="sharma" />
+		<property name="email" value="Durgesh@sjd.com" />
+		<property name="address" value="kjnfdkjn" />
+	</bean>
+
+	<bean id="crud" class="com.bizruntime.SpringDAOProject.StudentDataCRUDDAOImpl" />
+
+</beans>	

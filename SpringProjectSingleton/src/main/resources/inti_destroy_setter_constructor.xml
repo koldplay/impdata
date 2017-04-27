@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd 
+						http://www.springframework.org/schema/context 
+				        http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:c="http://www.springframework.org/schema/c"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context">
+	
+	<bean id="school_setter" class="com.bizruntime.init_destroy.School" >
+		<property name="studentName" value="krishna"/>
+		<property name="rollno" value="12"/>	
+	</bean>
+	<bean id="school_constructor" class="com.bizruntime.init_destroy.School_Constructor">
+		<constructor-arg value="12" type="int"/>
+		<constructor-arg value="krishna" type="String"/>
+		
+	</bean>	
+	
+	<bean id="student_setter" class="com.bizruntime.init_destroy.Student_setter" init-method="init" destroy-method="destroy">
+		<property name="school" ref="school_setter"></property>
+	</bean>
+	
+	<bean id="student_constructor" class="com.bizruntime.init_destroy.Student_setter" init-method="init" destroy-method="destroy">
+		<constructor-arg type="School" ref="school_constructor"/>
+	</bean>
+	
+	
+	
+</beans>	

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configures the Camel Context -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:prop="http://camel.apache.org/schema/placeholder"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+	<bean id="properties" class="org.apache.camel.component.properties.PropertiesComponent">
+		<property name="location" value="classpath:META-INF/spring/location.properties"/>
+	</bean>
+
+	<bean id="mybean" class="com.bizruntime.camelprojecttask3.MyBean"/>
+	<camelContext xmlns="http://camel.apache.org/schema/spring">
+
+		<propertyPlaceholder id="properties"
+			location="META-INF/spring/location.properties" />
+	
+		
+		<route>
+			<from uri="file:src/data?noop=true" />
+			<log message="{{data.ex}}" />
+			<log message="{{dataagain.ex}}" />
+			<to uri="properties:data.ex"/>
+		</route>
+		<route>
+			<from uri="timer://foo"/>
+			<log message="data is setting"/>
+			<setBody>
+				<simple>data</simple>
+			</setBody>
+			<to uri="properties:data.ex?locations=META-INF/spring/location.properties"/>
+			
+		</route>
+		
+		
+<!-- 			<route> -->
+<!-- 				<from uri="timer:/foo?period=200"/> -->
+<!-- 				<log message="data is reading"/> -->
+<!-- 				<log message="{{data.ex}}"/>	 -->
+<!-- 			</route> -->
+
+	</camelContext>
+</beans>       

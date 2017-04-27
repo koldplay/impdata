@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PeronData>
+	<person user="hiram">
+		<firstName>Hiram</firstName>
+		<lastName>Chirino</lastName>
+		<city>London</city>
+	</person>
+	<person user="james">
+		<firstName>James</firstName>
+		<lastName>Strachan</lastName>
+		<city>London</city>
+	</person>
+</PeronData>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+	
+	
+	
+  <camelContext xmlns="http://camel.apache.org/schema/spring">
+  	
+  	<dataFormats  >  	
+  		<xmljson id="formate" 
+  				 rootName="Person" 
+  				 skipNamespaces="true" 
+  				 skipWhitespace="true"
+  				 forceTopLevelObject="false"
+  				 trimSpaces="true"
+  				 namespaceLenient="true"
+  				 elementName="catalog" />
+  	</dataFormats>
+  
+  	<route>
+  		<from uri="file:src/data?fileName=book.xml"/>
+  		<log message="${body}"/>
+  		<marshal ref="formate" />
+  		<to uri="file:target/data?fileName=book.json"/>
+  	</route>  
+  </camelContext>
+</beans>
+  

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd 
+						http://www.springframework.org/schema/context 
+				        http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:c="http://www.springframework.org/schema/c"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context">
+	
+	
+	<bean id="student_setter" class="com.bizruntime.SpringProjectPrototype.Student" scope="prototype" >
+		<property name="name" value="Krishna" />
+		<property name="rollno" value="12"/>
+	</bean>
+	
+	<bean id="student_constructer" class="com.bizruntime.Constructerprototype.Student" scope="prototype">
+		<constructor-arg value="32" type="int"/>
+		<constructor-arg value="Rohit" type="String"/>
+	</bean>
+</beans>	

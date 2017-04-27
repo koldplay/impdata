@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:tx="http://www.springframework.org/schema/tx" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean id="datasource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/koldplay" />
+		<property name="username" value="root" />
+		<property name="password" value="koldplay" />
+	</bean>
+
+   <tx:advice id = "txAdvice" transaction-manager = "transactionManager">
+      <tx:attributes>
+      <tx:method name = "create"/>
+      </tx:attributes>
+   </tx:advice>
+	
+   <aop:config>
+      <aop:pointcut id = "createOperation" 
+         expression = "execution(* com.bizruntime.SpringDeclarativeTransactionManagementxml.StudentJDBCTemplate.create(..))"/>
+      
+      <aop:advisor advice-ref = "txAdvice" pointcut-ref = "createOperation"/>
+   </aop:config>
+
+	<bean id="transactionmanager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="datasource" />
+	</bean>
+
+	<bean id="studentJDBCTemplate"
+		class="com.bizruntime.SpringDeclarativeTransactionManagementxml.StudentJDBCTemplate">
+		<property name="dataSource" ref="datasource" />
+	</bean>
+</beans>	

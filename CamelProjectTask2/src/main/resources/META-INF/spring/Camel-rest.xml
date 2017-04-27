@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+       http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+	<camelContext xmlns="http://camel.apache.org/schema/spring">
+		<route>
+			<from
+				uri="restlet:http://127.0.0.1:7071/UserProductJersey/webresources/userpoduct/user?restletMethod=POST" />
+			<to uri="stream:out" />
+		</route>
+		<route>
+			<from uri="timer://foo?period=200" />
+			<to
+				uri="restlet:http://127.0.0.1:7070/UserProductJersey/webresources/userpoduct/getUser?restletMethod=None" />
+		</route>
+
+<!-- 		<route id=""> -->
+<!-- 			<from uri="restlet:/getUser?restletMethod=GET" /> -->
+<!-- 			<setBody> -->
+<!-- 				<simple>select * from user</simple> -->
+<!-- 			</setBody> -->
+<!-- 			<to uri="jdbc:dataSource"/>			 -->
+<!-- 		</route> -->
+	</camelContext>
+
+</beans>  

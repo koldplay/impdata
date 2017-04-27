@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+	
+	<bean id="person" class="com.bizrunitme.jsonobject.Person"/>
+	<bean id="persondata" class="com.bizrunitme.jsonobject.MethodInvoke"/>	
+	
+  <camelContext xmlns="http://camel.apache.org/schema/spring">
+  	
+  	<dataFormats  >  	
+  		<json id="formate" library="Jackson" unmarshalTypeName="com.bizrunitme.jsonobject.Person" prettyPrint="true"/>
+  	</dataFormats>
+  	<route>
+  		<from uri="file:src/data?fileName=message1.json"/>
+ 		<unmarshal ref="formate" />
+ 		<log message="fromate is done"/>
+ 		<log message="${body}"/> 		
+ 		<to uri="bean:persondata?method=dataPerson(Exchange)"/>
+ 		<marshal ref="formate"/>
+ 		<log message="marshaling is done"/>
+ 		<log message="${body}"/>
+ 		<to uri ="file:target/json?fileName=manage.json"/>
+  	</route>
+
+  </camelContext>
+</beans>
+  	

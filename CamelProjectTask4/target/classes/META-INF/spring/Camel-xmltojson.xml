@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+
+
+	<camelContext xmlns="http://camel.apache.org/schema/spring">
+
+		<dataFormats>
+			<xmljson id="formate" rootName="Person" skipNamespaces="true"
+				skipWhitespace="true" forceTopLevelObject="false" trimSpaces="true"
+				namespaceLenient="true" elementName="catalog"  />
+		</dataFormats>
+
+		<!-- <route> -->
+		<!-- <from uri="file:src/data?fileName=message1.xml"/> -->
+		<!-- <log message="${body}"/> -->
+		<!-- <marshal ref="formate" /> -->
+		<!-- <to uri="file:target/xmljson/data?fileName=message1.json"/> -->
+		<!-- </route> -->
+		<!-- <route> -->
+		<!-- <from uri="file:src/data?fileName=message1.json"/> -->
+		<!-- <log message="${body}"/> -->
+		<!-- <unmarshal ref="formate"/> -->
+		<!-- <to uri="file:target/xmljson/xml?fileName=message1.xml"/> -->
+		<!-- </route> -->
+
+		<route>
+			<from uri="restlet:http://127.0.0.1:7071/xmltojson?restletMethod=POST" />
+			<!-- <log message="${body}"/> -->
+			<marshal ref="formate" />
+			<to uri="file:target/xmljson/data?fileName=message1.xml" />
+		</route>
+
+		<route>
+			<from uri="restlet:http://127.0.0.1:7071/jsontoxml?restletMethod=POST" />
+			<!-- <log message="${body}"/> -->
+			<unmarshal ref="formate" />
+			<to uri="file:target/xmljson/data?fileName=message1.xml" />
+		</route>
+
+	</camelContext>
+</beans>
+  

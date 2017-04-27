@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd 
+						http://www.springframework.org/schema/context 
+				        http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:c="http://www.springframework.org/schema/c"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context">
+
+	<bean id="set1" class="com.bizruntime.autowired.School">
+		<property name="batch" value="A" />
+		<property name="rollno" value="12" />
+	</bean>
+
+
+	<bean id="set2" class="com.bizruntime.autowired.School"
+		autowire-candidate="false">
+		<property name="batch" value="B" />
+		<property name="rollno" value="11" />
+	</bean>
+
+	<bean id="school" class="com.bizruntime.autowired.School" autowire-candidate="false">
+		<property name="batch" value="c" />
+		<property name="rollno" value="13" />
+	</bean>
+	
+	<bean id="student_setter_type" class="com.bizruntime.autowired.Student_setter" autowire="byType" scope="prototype"/>
+	<bean id="student_setter_name" class="com.bizruntime.autowired.Student_setter" autowire="byName"  scope="singleton"/>		
+	<bean id="student_constructor" class="com.bizruntime.autowired.Student_constructor" autowire="constructor" scope="singleton"/>	
+</beans>	
