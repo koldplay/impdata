@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+  <camelContext xmlns="http://camel.apache.org/schema/spring">
+<!--   	<route> -->
+<!--   		<from uri="file:src/data?noop=true&amp;fileName=books.xml"/> -->
+<!--   		<log message="data gotted"/> -->
+<!--   		<to uri="xquery:classpath:mydata.xquery"/> -->
+<!--   		<log message="data gotted from xquery"/> -->
+<!--   		<to uri="file:target/data?fileName=book.xml"/> -->
+<!--   	</route>   -->
+  	<route>
+  		<from uri="restlet:http://127.0.0.1:7071/xquery?restletMethod=POST" />
+<!--   		<log message="${body}"/> -->
+  		<to uri="xquery:classpath:mydata.xquery"/>
+  		<log message="data after restlet through xquery"/>
+<!--   		<to uri="file:target/data?fileName=book1.xml"/> -->
+  	</route>
+  </camelContext>
+</beans>

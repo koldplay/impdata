@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configures the Camel Context -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+       http://www.springframework.org/schema/context 
+				        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<bean id="emp" class="com.bizruntime.task5.Employee" />
+
+	<!-- <bean id="properties" -->
+	<!-- class="org.apache.camel.component.properties.PropertiesComponent"> -->
+	<!-- <property name="location" -->
+	<!-- value="classpath:META-INF/spring/connection.properties" /> -->
+	<!-- </bean> -->
+	<context:property-placeholder
+		location="classpath:META-INF/spring/connection.properties" />
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		scope="singleton">
+		<property name="driverClassName" value="${driverClassName}"></property>
+		<property name="url" value="${url}"></property>
+		<property name="username" value="${username}"></property>
+		<property name="password" value="${password}"></property>
+
+	</bean>
+
+	<bean id="databaseUtil" class="com.bizruntime.task5.DBUtil">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="dao" class="com.bizruntime.task5.EmployeeDaoImpl">
+		<property name="dbUtil" ref="databaseUtil" />
+	</bean>
+
+
+
+	<camelContext xmlns="http://camel.apache.org/schema/spring"
+		typeConverterStatisticsEnabled="true">
+		<propertyPlaceholder id="properties"
+			location="META-INF/spring/connection.properties" />
+
+		<dataFormats>
+
+			<json id="formate" library="Jackson" unmarshalTypeName="com.bizruntime.task5.Employee"
+				prettyPrint="true" />
+		</dataFormats>
+
+		<route id="json">
+			<from
+				uri="restlet:http://127.0.0.1:7071/employeedetail/json/{operation}?restletMethods=POST,GET,PUT" />
+			<choice>
+				<when>
+					<xpath>$operation = 'addemployee'</xpath>
+					<log message="add method" />
+					<unmarshal ref="formate" />
+					<log message="${body}" />
+					<to uri="direct:addemp" />
+				</when>
+				<when>
+					<xpath>$operation = 'deleteEmployee'</xpath>
+					<log message="deleting employee" />
+					<unmarshal ref="formate" />
+					<log message="${body}" />
+					<to uri="direct:delemp" />
+				</when>
+				<when>
+					<xpath>$operation = 'updateEmployee'</xpath>
+					<log message="update is working" />
+					<unmarshal ref="formate" />
+					<log message="${body}" />
+					<to uri="direct:updateemp" />
+
+				</when>
+				<when>
+					<xpath>$operation = 'getEmployee'</xpath>
+					<log message="get is working" />
+					<to uri="direct:getEmp" />
+				</when>
+			</choice>
+		</route>
+
+		<route>
+			<from uri="direct:addemp" />
+			<log message="Add Method is called" />
+			<to uri="bean:dao?method=addEmployee(Exchange)" />
+		</route>
+		<route>
+			<from uri="direct:delemp" />
+			<log message="Delete Method is Called" />
+			<to uri="bean:dao?method=deleteEmployee(Exchange)" />
+		</route>
+		<route>
+			<from uri="direct:updateemp" />
+			<log message="Update Method is Working" />
+			<to uri="bean:dao?method=updateEmployee(Exchange)" />
+			<!-- <marshal ref="jackunmarshal" /> -->
+			<!-- <to uri="file:target/xml?fileName=manage1.xml"/> -->
+			<log message="${body}" />
+		</route>
+		<route>
+			<from uri="direct:getEmp" />
+			<log message="Getting Employee" />
+			<to uri="bean:dao?method=getEmployee()" />
+		</route>
+
+	</camelContext>
+</beans>
