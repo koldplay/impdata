@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+	<camelContext xmlns="http://camel.apache.org/schema/spring">
+
+		<!-- direct start -->
+		<route>
+			<from uri="restlet:http://127.0.0.1:7071/direct?restletMethod=POST" />
+			<to uri="direct:dirc" />
+		</route>
+		<!-- <route> -->
+		<!-- <from uri="direct:dirc"/> -->
+		<!-- <log message="${body}"/> -->
+		<!-- </route> -->
+		<!-- direct end -->
+
+		<!-- direct vm start -->
+		<route>
+			<from uri="restlet:http://127.0.0.1:7071/directvm?restletMethod=POST" />
+			<to uri="direct-vm:process" />
+		</route>
+		<!-- <route> -->
+		<!-- <from uri="direct-vm:process" /> -->
+		<!-- <log message="${body}" /> -->
+		<!-- </route> -->
+		<!-- direct vm ends -->
+
+		<!-- seda starts -->
+		<route>
+			<from uri="restlet:http://127.0.0.1:7071/seda?restletMethod=POST" />
+			<to uri="seda:foo" />
+		</route>
+		<!-- <route> -->
+		<!-- <from uri="seda:foo"/> -->
+		<!-- <log message="${body}"/> -->
+		<!-- </route> -->
+
+		<!-- seda ends -->
+
+		<!-- vm start -->
+		<route>
+			<from uri="restlet:http://127.0.0.1:7071/vm?restletMethod=POST" />
+			<to uri="vm:foo" />
+			<log message="data is sended"></log>
+		</route>
+		<!-- <route> -->
+		<!-- <from uri="vm:foo"/> -->
+		<!-- <log message="${body}"/> -->
+		<!-- </route> -->
+		<!-- vm ends -->
+
+	</camelContext>
+
+	<camelContext xmlns="http://camel.apache.org/schema/spring">
+		<route>
+			<from uri="direct:dirc" />
+			<log message="${body}" />
+		</route>
+		<route>
+			<from uri="direct-vm:process" />
+			<log message="${body}" />
+		</route>
+		<route>
+			<from uri="seda:foo" />
+			<log message="${body}" />
+		</route>
+		<route>
+			<from uri="vm:foo" />
+			<log message="${body}" />
+		</route>
+	</camelContext>
+
+</beans>	
